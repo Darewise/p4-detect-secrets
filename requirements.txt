@@ -1,0 +1,2 @@
+detect-secrets==1.0.3
+p4python==2020.1.2056111

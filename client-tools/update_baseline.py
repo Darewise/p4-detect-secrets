@@ -8,7 +8,7 @@ from detect_secrets.settings import default_settings
 from detect_secrets_utils import (
     audit,
     scan_secret,
-    depot_path_to_relative,
+    depot_path_to_workspace_path,
     do_exclude_file,
     flatten_p4_print,
     SECRET_BASELINE,
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
         scanned_files = []
         for depot_file in cl_description["depotFile"]:
-            relative_path = depot_path_to_relative(p4, depot_file)
+            relative_path = depot_path_to_workspace_path(p4, depot_file)
 
             if do_exclude_file(relative_path):
                 continue

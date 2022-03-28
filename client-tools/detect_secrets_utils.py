@@ -96,7 +96,7 @@ def get_client_stream(p4: P4, client: str):
 depot_path_infos = {}
 
 
-def depot_path_to_relative(p4: P4, depot_path: str):
+def depot_path_to_workspace_path(p4: P4, depot_path: str):
     global depot_path_infos
 
     m = re.search(r"^(//[\w.-]*)/[\w.-]*", depot_path)

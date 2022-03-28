@@ -3,7 +3,7 @@ from detect_secrets import SecretsCollection
 from detect_secrets.core import baseline
 from detect_secrets.core.log import log
 from detect_secrets.settings import default_settings
-from detect_secrets_utils import scan_secret, depot_path_to_relative, do_exclude_file, flatten_p4_print
+from detect_secrets_utils import scan_secret, depot_path_to_workspace_path, do_exclude_file, flatten_p4_print
 import argparse
 import json
 
@@ -31,7 +31,7 @@ if __name__ == "__main__":
         workspace_files = p4.run("have")
         for file in workspace_files:
             depot_file = file["depotFile"]
-            relative_path = depot_path_to_relative(p4, depot_file)
+            relative_path = depot_path_to_workspace_path(p4, depot_file)
             if do_exclude_file(relative_path):
                 continue
 
